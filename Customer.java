@@ -33,21 +33,21 @@ public class Customer {
     }
 
 	public static int size() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	public static void addCustomer(Customer newCustomer) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	public static Customer removeCustomer() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	  public static List<Customer> getCustomers() {
-	        return customers; // Return the list of customers
+	        return customers; 
 	    }
 
 }
