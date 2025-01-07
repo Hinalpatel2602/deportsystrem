@@ -7,9 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AppView extends JFrame {
-    /**
-	 * 
-	 */
+   
 	private static final long serialVersionUID = 1L;
 	private JTextArea customerQueueArea;
     private JTextArea parcelListArea;
@@ -23,13 +21,13 @@ public class AppView extends JFrame {
     private JButton exitButton;
 
     public AppView() {
-        // Set up the frame
+      
         setTitle("Parcel Management System");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Customer Queue Panel
+   
         customerQueueArea = new JTextArea(10, 20);
         customerQueueArea.setEditable(false);
         JScrollPane customerScrollPane = new JScrollPane(customerQueueArea);
@@ -37,7 +35,7 @@ public class AppView extends JFrame {
         customerPanel.add(new JLabel("Customer Queue"), BorderLayout.NORTH);
         customerPanel.add(customerScrollPane, BorderLayout.CENTER);
 
-        // Parcel List Panel
+       
         parcelListArea = new JTextArea(10, 20);
         parcelListArea.setEditable(false);
         JScrollPane parcelScrollPane = new JScrollPane(parcelListArea);
@@ -45,7 +43,7 @@ public class AppView extends JFrame {
         parcelPanel.add(new JLabel("Parcel List"), BorderLayout.NORTH);
         parcelPanel.add(parcelScrollPane, BorderLayout.CENTER);
 
-        // Processing Panel
+       
         processingArea = new JTextArea(5, 40);
         processingArea.setEditable(false);
         JScrollPane processingScrollPane = new JScrollPane(processingArea);
@@ -53,7 +51,7 @@ public class AppView extends JFrame {
         processingPanel.add(new JLabel("Processing Details"), BorderLayout.NORTH);
         processingPanel.add(processingScrollPane, BorderLayout.CENTER);
 
-        // Log Panel
+      
         logArea = new JTextArea(10, 40);
         logArea.setEditable(false);
         JScrollPane logScrollPane = new JScrollPane(logArea);
@@ -61,7 +59,7 @@ public class AppView extends JFrame {
         logPanel.add(new JLabel("Log"), BorderLayout.NORTH);
         logPanel.add(logScrollPane, BorderLayout.CENTER);
 
-        // Buttons Panel
+ 
         addCustomerButton = new JButton("Add Customer");
         removeCustomerButton = new JButton("Remove Customer");
         processCustomerButton = new JButton("Process Next Customer");
@@ -75,7 +73,7 @@ public class AppView extends JFrame {
         buttonPanel.add(addParcelButton);
         buttonPanel.add(exitButton);
 
-        // Add panels to frame
+     
         JPanel topPanel = new JPanel(new GridLayout(1, 2));
         topPanel.add(customerPanel);
         topPanel.add(parcelPanel);
@@ -86,7 +84,7 @@ public class AppView extends JFrame {
         add(buttonPanel, BorderLayout.PAGE_END);
     }
 
-    // Getters for text areas
+   
     public JTextArea getCustomerQueueArea() {
         return customerQueueArea;
     }
@@ -103,7 +101,7 @@ public class AppView extends JFrame {
         return logArea;
     }
 
-    // Getters for buttons
+   
     public JButton getAddCustomerButton() {
         return addCustomerButton;
     }
@@ -124,7 +122,7 @@ public class AppView extends JFrame {
         return exitButton;
     }
 
-    // Attach event listeners
+ 
     public void addListener(ActionListener listener) {
         addCustomerButton.addActionListener(listener);
         removeCustomerButton.addActionListener(listener);
@@ -145,7 +143,7 @@ public class AppView extends JFrame {
             this.log = Log.getInstance();
             this.view = view;
 
-            view.addListener(this); // Attach listeners to buttons
+            view.addListener(this); 
         }
 
         @Override
@@ -166,11 +164,11 @@ public class AppView extends JFrame {
             } else if (e.getSource() == view.getProcessCustomerButton()) {
                 processCustomer();
             } else if (e.getSource() == view.getAddParcelButton()) {
-                // Add a new parcel
+                
                 Parcel newParcel = new Parcel(
                         "P" + (ParcelMap.size() + 1),
-                        5.0, // Default weight
-                        "New Destination" // Default destination
+                        5.0, 
+                        "New Destination" 
                 );
                 parcelMap.addParcel(newParcel);
                 updateParcelList();
@@ -180,7 +178,7 @@ public class AppView extends JFrame {
             }
         }
 
-        // Process a customer by assigning them the first available parcel
+        
         private void processCustomer() {
             Customer customer = Customer.removeCustomer();
             if (customer != null) {
@@ -200,15 +198,15 @@ public class AppView extends JFrame {
             }
         }
 
-        // Fetch the first available parcel
+       
         private Parcel getFirstAvailableParcel() {
             for (Parcel parcel : parcelMap.values()) {
                 return parcel; // Return the first available parcel
             }
-            return null; // No parcels available
+            return null; 
         }
 
-        // Mark a parcel as collected and log the event
+        
         private void markParcelAsCollected(Parcel parcel) {
             parcelMap.removeParcel(parcel.getId());
             log.addEntry("Parcel " + parcel.getId() + " collected by a customer.");
@@ -222,7 +220,7 @@ public class AppView extends JFrame {
             }
         }
 
-        // Update the parcel list in the GUI
+   
         public void updateParcelList() {
             view.getParcelListArea().setText("");
             for (Parcel parcel : parcelMap.values()) {
@@ -230,7 +228,7 @@ public class AppView extends JFrame {
             }
         }
 
-        // Update the processing area in the GUI
+        
         private void updateProcessingArea(Customer customer, Parcel parcel) {
             view.getProcessingArea().setText("");
             if (customer != null && parcel != null) {
