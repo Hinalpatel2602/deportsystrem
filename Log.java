@@ -24,7 +24,7 @@ public class Log {
     }
 
 	public static void writeLogToFile(String string) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }
