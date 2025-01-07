@@ -1,4 +1,4 @@
-package src;
+package  src;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class Customer {
     private String name;
     private String contactDetails;
 
-    public Customer(String id, String name, String contactDetails) {
+    public Customer(String  id, String name, String contactDetails) {
         this.id = id;
         this.name = name;
         this.contactDetails = contactDetails;
