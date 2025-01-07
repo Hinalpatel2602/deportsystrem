@@ -36,13 +36,13 @@ public class ParcelMap {
 
     public Iterable<Parcel> values() {
     	if (parcelMap == null) {
-            return new HashMap<String, Parcel>().values(); // Return an empty collection if null
+            return new HashMap<String, Parcel>().values(); 
         }
         return parcelMap.values(); 
 	}
 
 	public static int size() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 }
