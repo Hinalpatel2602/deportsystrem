@@ -34,7 +34,6 @@ public class QueueOfCustomers {
     }
 
 	public Queue<Customer> getQueue() {
-		// TODO Auto-generated method stub
 		return customerQueue;
 	}
 }
