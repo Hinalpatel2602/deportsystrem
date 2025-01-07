@@ -33,11 +33,11 @@ public class Worker {
     }
 
     private double calculateFee(Parcel parcel) {
-        return parcel.getWeight() * 2.5; // Example fee calculation
+        return parcel.getWeight() * 2.5; 
     }
 
 	public static void processCustomer(Customer customer, Parcel parcel) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }
