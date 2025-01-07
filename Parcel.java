@@ -1,10 +1,10 @@
-package src;
+package  src;
 
 public class Parcel {
     private String id;
     private double weight;
     private String destination;
-    private boolean processed;
+    private  boolean processed;
 
     public Parcel(String id, double weight, String destination) {
         this.id = id;
@@ -13,7 +13,7 @@ public class Parcel {
         this.processed = false;
     }
 
-    public String getId() {
+    public String  getId() {
         return id;
     }
 
