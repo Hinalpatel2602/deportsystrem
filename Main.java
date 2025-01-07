@@ -95,16 +95,15 @@ public class Main {
                     "X919,5,8,7,4,10"
             };
 
-        // Display log entries
         System.out.println("\nLog Entries:");
         System.out.println(Log.getInstance().getEntries());
        
         for (String parcelData : parcels) {
             String[] parts = parcelData.split(",");
             parcelMap.addParcel(new Parcel(
-                    parts[0].trim(),                         // Parcel ID
-                    Double.parseDouble(parts[1].trim()),    // Weight
-                    "Destination " + parts[0].trim()        // Destination (use parcel ID for simplicity)
+                    parts[0].trim(),                        
+                    Double.parseDouble(parts[1].trim()),    
+                    "Destination " + parts[0].trim()        
             ));
     }
         }
